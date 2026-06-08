@@ -1,16 +1,10 @@
-import json
-
 import requests
 
-# TODO: send a GET using the URL http://127.0.0.1:8000
-r = None # Your code here
+url = "http://127.0.0.1:8000"
 
-# TODO: print the status code
-# print()
-# TODO: print the welcome message
-# print()
-
-
+r = requests.get(url)
+print(f"Status Code: {r.status_code}")
+print(f"Result: {r.json()}")
 
 data = {
     "age": 37,
@@ -29,10 +23,6 @@ data = {
     "native-country": "United-States",
 }
 
-# TODO: send a POST using the data above
-r = None # Your code here
-
-# TODO: print the status code
-# print()
-# TODO: print the result
-# print()
+r = requests.post(f"{url}/data/", json=data)
+print(f"Status Code: {r.status_code}")
+print(f"Result: {r.json()}")
